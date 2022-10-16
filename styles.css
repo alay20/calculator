@@ -1,0 +1,85 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.calc-main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-color:rgb(0, 0, 0);
+    border-style: solid;
+    border-width: 2px;
+    width: 500px;
+    height: 600px;
+}
+
+.calc-display {
+    border-color:rgb(0, 0, 0);
+    border-style: solid;
+    background-color: rgb(199, 199, 199);
+    width: 450px;
+    height: 150px;
+    line-height: 150px;
+    margin-top: 25px;
+    text-align: right;
+    font-size: 70px;
+}
+
+.keys-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 60px;   
+    margin-top: 15px;
+}
+
+.clear-key {
+    margin-top: 15px;
+    margin-left: 45px;
+    align-self: flex-start;
+    font-size: 25px;
+    background-color: rgb(255, 140, 0);
+}
+
+.key-0,
+.key-1,
+.key-2,
+.key-3,
+.key-4,
+.key-5,
+.key-6,
+.key-7,
+.key-8,
+.key-9,
+.key-divide,
+.key-multiply,
+.key-subtract,
+.key-equal,
+.key-decimal,
+.key-add {
+    font-size: 70px;
+    text-align: center;
+}
+
+.key-0:disabled,
+.key-1:disabled,
+.key-2:disabled,
+.key-3:disabled,
+.key-4:disabled,
+.key-5:disabled,
+.key-6:disabled,
+.key-7:disabled,
+.key-8:disabled,
+.key-9:disabled,
+.key-decimal:disabled {
+    -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: rgb(240, 240, 240);
+  border: 1px solid rgb(128, 128, 128);
+  color: black;
+  font-size: 70px;
+  text-decoration: none;
+}
