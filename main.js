@@ -1,16 +1,5 @@
-// var operator = prompt("add, subtract, multiply, or divide?").toLowerCase();
-// var num1 = parseInt(prompt("First number?"));
-// var num2 = parseInt(prompt("Second number?"));
-// var result 
-// operate(num1, num2);
-// var sum = null
-// var difference = null
-// var product = null
-// var quotient = null
-
-
 var operator;
-var num1;
+var num1
 var num2;
 var result;
 
@@ -30,53 +19,44 @@ function division (a,b){
     return a/b;
 }
 
-function operate (a, b) {
-    if (operator === "add") {
-        result = addition(a , b);
-    } else if (operator === "subtract") {
-        result = subtraction(a, b);
-    } else if (operator === "multiply") {
-        result = multiplication(a, b);
-    } else if (operator === "division") {
-        result = division(a, b);
-    }
-console.log(result);
+// Calculator Display
+var numKeyCount = 0;
+var operatorKeyCount = 0;
+var equalKeyCount = 0;
+var displayNum = "";
+var calcDisplay = document.querySelector('.calc-display');
+calcDisplay.textContent = "0";
+
+function clearDisplay () {
+    displayNum = "";
+    numKeyCount = 0;
+    operatorKeyCount = 0;
+    equalKeyCount = 0;
+    operator = "";
+    num1 = 0;
+    num2 = 0;
+    result = 0;
+    calcDisplay.textContent = "0";
 }
 
-// Calculator Display
-var clickCount = 0
-var displayNum = "";
-var calcNum1 = 0;
-var calcNum2 = 0;
-var calcDisplay = document.querySelector('.calc-display');
-
 function displayNumber0() {
-    displayNum += "0";
-    calcDisplay.textContent = displayNum;
-    clickCount += 1;
-    if (clickCount === 1) {
-        keyZero.disabled = true;
-        keyOne.disabled = true;
-        keyTwo.disabled = true;
-        keyThree.disabled = true;
-        keyFour.disabled = true;
-        keyFive.disabled = true;
-        keySix.disabled = true;
-        keySeven.disabled = true;
-        keyEight.disabled = true;
-        keyNine.disabled = true;
-    } else if (clickCount > 1 && clickCount < 12) {
-        keyZero.disabled = false;
-        keyOne.disabled = false;
-        keyTwo.disabled = false;
-        keyThree.disabled = false;
-        keyFour.disabled = false;
-        keyFive.disabled = false;
-        keySix.disabled = false;
-        keySeven.disabled = false;
-        keyEight.disabled = false;
-        keyNine.disabled = false;
-    } else if (clickCount > 12) {
+    numKeyCount += 1;
+    
+    keyAdd.disabled = false;
+    keySubtract.disabled = false;
+    keyDivide.disabled = false;
+    keyMultiply.disabled = false;
+    keyEqual.disabled = false;
+    
+    if (numKeyCount === 1) {
+        displayNum = "0."
+        calcDisplay.textContent = displayNum;
+        keyDecimal.disabled = true;
+    } else if (numKeyCount > 1 && numKeyCount < 11) {
+        displayNum += "0";
+        calcDisplay.textContent = displayNum;    
+        keyDecimal.disabled = true;
+    } else if (numKeyCount > 11) {
         keyZero.disabled = true;
         keyOne.disabled = true;
         keyTwo.disabled = true;
@@ -92,10 +72,24 @@ function displayNumber0() {
 }
 
 function displayNumber1() {
-    displayNum += "1";
-    calcDisplay.textContent = displayNum;
-    clickCount += 1;
-    if (clickCount > 12) {
+    numKeyCount += 1; 
+    
+    keyAdd.disabled = false;
+    keySubtract.disabled = false;
+    keyDivide.disabled = false;
+    keyMultiply.disabled = false;
+    keyEqual.disabled = false;
+    
+    if (numKeyCount === 1) {
+        displayNum = "";
+        displayNum += "1";
+        calcDisplay.textContent = displayNum;  
+    } else {
+        displayNum += "1";
+        calcDisplay.textContent = displayNum;        
+    }
+    
+    if (numKeyCount > 11) {
         keyZero.disabled = true;
         keyOne.disabled = true;
         keyTwo.disabled = true;
@@ -111,10 +105,24 @@ function displayNumber1() {
 }
 
 function displayNumber2() {
-    displayNum += "2";
-    calcDisplay.textContent = displayNum;
-    clickCount += 1;
-    if (clickCount > 12) {
+    numKeyCount += 1; 
+   
+    keyAdd.disabled = false;
+    keySubtract.disabled = false;
+    keyDivide.disabled = false;
+    keyMultiply.disabled = false;
+    keyEqual.disabled = false;
+    
+    if (numKeyCount === 1) {
+        displayNum = "";
+        displayNum += "2";
+        calcDisplay.textContent = displayNum;  
+    } else {
+        displayNum += "2";
+        calcDisplay.textContent = displayNum;        
+    }
+    
+    if (numKeyCount > 11) {
         keyZero.disabled = true;
         keyOne.disabled = true;
         keyTwo.disabled = true;
@@ -130,10 +138,24 @@ function displayNumber2() {
 }
 
 function displayNumber3() {
-    displayNum += "3";
-    calcDisplay.textContent = displayNum;
-    clickCount += 1;
-    if (clickCount > 12) {
+    numKeyCount += 1; 
+    
+    keyAdd.disabled = false;
+    keySubtract.disabled = false;
+    keyDivide.disabled = false;
+    keyMultiply.disabled = false;
+    keyEqual.disabled = false;
+    
+    if (numKeyCount === 1) {
+        displayNum = "";
+        displayNum += "3";
+        calcDisplay.textContent = displayNum;  
+    } else {
+        displayNum += "3";
+        calcDisplay.textContent = displayNum;        
+    }
+    
+    if (numKeyCount > 11) {
         keyZero.disabled = true;
         keyOne.disabled = true;
         keyTwo.disabled = true;
@@ -149,10 +171,24 @@ function displayNumber3() {
 }
 
 function displayNumber4() {
-    displayNum += "4";
-    calcDisplay.textContent = displayNum;
-    clickCount += 1;
-    if (clickCount > 12) {
+    numKeyCount += 1; 
+    
+    keyAdd.disabled = false;
+    keySubtract.disabled = false;
+    keyDivide.disabled = false;
+    keyMultiply.disabled = false;
+    keyEqual.disabled = false;
+
+    if (numKeyCount === 1) {
+        displayNum = "";
+        displayNum += "4";
+        calcDisplay.textContent = displayNum;  
+    } else {
+        displayNum += "4";
+        calcDisplay.textContent = displayNum;        
+    }
+    
+    if (numKeyCount > 11) {
         keyZero.disabled = true;
         keyOne.disabled = true;
         keyTwo.disabled = true;
@@ -168,10 +204,24 @@ function displayNumber4() {
 }
 
 function displayNumber5() {
-    displayNum += "5";
-    calcDisplay.textContent = displayNum;
-    clickCount += 1;
-    if (clickCount > 12) {
+    numKeyCount += 1; 
+    
+    keyAdd.disabled = false;
+    keySubtract.disabled = false;
+    keyDivide.disabled = false;
+    keyMultiply.disabled = false;
+    keyEqual.disabled = false;
+
+    if (numKeyCount === 1) {
+        displayNum = "";
+        displayNum += "5";
+        calcDisplay.textContent = displayNum;  
+    } else {
+        displayNum += "5";
+        calcDisplay.textContent = displayNum;        
+    }
+    
+    if (numKeyCount > 11) {
         keyZero.disabled = true;
         keyOne.disabled = true;
         keyTwo.disabled = true;
@@ -187,10 +237,24 @@ function displayNumber5() {
 }
 
 function displayNumber6() {
-    displayNum += "6";
-    calcDisplay.textContent = displayNum;
-    clickCount += 1;
-    if (clickCount > 12) {
+    numKeyCount += 1; 
+    
+    keyAdd.disabled = false;
+    keySubtract.disabled = false;
+    keyDivide.disabled = false;
+    keyMultiply.disabled = false;
+    keyEqual.disabled = false;
+
+    if (numKeyCount === 1) {
+        displayNum = "";
+        displayNum += "6";
+        calcDisplay.textContent = displayNum;  
+    } else {
+        displayNum += "6";
+        calcDisplay.textContent = displayNum;        
+    }
+    
+    if (numKeyCount > 11) {
         keyZero.disabled = true;
         keyOne.disabled = true;
         keyTwo.disabled = true;
@@ -206,10 +270,24 @@ function displayNumber6() {
 }
 
 function displayNumber7() {
-    displayNum += "7";
-    calcDisplay.textContent = displayNum;
-    clickCount += 1;
-    if (clickCount > 12) {
+    numKeyCount += 1; 
+    
+    keyAdd.disabled = false;
+    keySubtract.disabled = false;
+    keyDivide.disabled = false;
+    keyMultiply.disabled = false;
+    keyEqual.disabled = false;
+
+    if (numKeyCount === 1) {
+        displayNum = "";
+        displayNum += "7";
+        calcDisplay.textContent = displayNum;  
+    } else {
+        displayNum += "7";
+        calcDisplay.textContent = displayNum;        
+    }
+    
+    if (numKeyCount > 11) {
         keyZero.disabled = true;
         keyOne.disabled = true;
         keyTwo.disabled = true;
@@ -225,10 +303,24 @@ function displayNumber7() {
 }
 
 function displayNumber8() {
-    displayNum += "8";
-    calcDisplay.textContent = displayNum;
-    clickCount += 1;
-    if (clickCount > 12) {
+    numKeyCount += 1; 
+    
+    keyAdd.disabled = false;
+    keySubtract.disabled = false;
+    keyDivide.disabled = false;
+    keyMultiply.disabled = false;
+    keyEqual.disabled = false;
+
+    if (numKeyCount === 1) {
+        displayNum = "";
+        displayNum += "8";
+        calcDisplay.textContent = displayNum;  
+    } else {
+        displayNum += "8";
+        calcDisplay.textContent = displayNum;        
+    }
+    
+    if (numKeyCount > 11) {
         keyZero.disabled = true;
         keyOne.disabled = true;
         keyTwo.disabled = true;
@@ -244,10 +336,24 @@ function displayNumber8() {
 }
 
 function displayNumber9() {
-    displayNum += "9";
-    calcDisplay.textContent = displayNum;
-    clickCount += 1;
-    if (clickCount > 12) {
+    numKeyCount += 1; 
+    
+    keyAdd.disabled = false;
+    keySubtract.disabled = false;
+    keyDivide.disabled = false;
+    keyMultiply.disabled = false;
+    keyEqual.disabled = false;
+
+    if (numKeyCount === 1) {
+        displayNum = "";
+        displayNum += "9";
+        calcDisplay.textContent = displayNum;  
+    } else {
+        displayNum += "9";
+        calcDisplay.textContent = displayNum;        
+    }
+    
+    if (numKeyCount > 11) {
         keyZero.disabled = true;
         keyOne.disabled = true;
         keyTwo.disabled = true;
@@ -263,70 +369,136 @@ function displayNumber9() {
 }
 
 function displayDecimal() {
-    displayNum += "."
-    calcDisplay.textContent = displayNum;
+    numKeyCount += 1;
+    
     keyDecimal.disabled = true;
-    clickCount += 1;
-    if (clickCount === 1) {
-        calcDisplay.textContent = "0."
-        keyZero.disabled = true;
-        keyOne.disabled = true;
-        keyTwo.disabled = true;
-        keyThree.disabled = true;
-        keyFour.disabled = true;
-        keyFive.disabled = true;
-        keySix.disabled = true;
-        keySeven.disabled = true;
-        keyEight.disabled = true;
-        keyNine.disabled = true;
-    } else if (clickCount > 1 && clickCount < 12) {
-        keyZero.disabled = false;
-        keyOne.disabled = false;
-        keyTwo.disabled = false;
-        keyThree.disabled = false;
-        keyFour.disabled = false;
-        keyFive.disabled = false;
-        keySix.disabled = false;
-        keySeven.disabled = false;
-        keyEight.disabled = false;
-        keyNine.disabled = false;
-    } else if (clickCount > 12) {
-        keyZero.disabled = true;
-        keyOne.disabled = true;
-        keyTwo.disabled = true;
-        keyThree.disabled = true;
-        keyFour.disabled = true;
-        keyFive.disabled = true;
-        keySix.disabled = true;
-        keySeven.disabled = true;
-        keyEight.disabled = true;
-        keyNine.disabled = true;
-    }
+    keyEqual.disabled = false;
+    
+    if (numKeyCount <= 1) {
+        displayNum = "0."
+        calcDisplay.textContent = displayNum;
+    } else if (numKeyCount > 1 && numKeyCount < 11) {
+        displayNum += "."
+        calcDisplay.textContent = displayNum;
+    } 
 }
 
 function pressAdd (){
-    operator = "add";
-    num1 = parseInt(displayNum);
-    displayNum = "";
-    calcDisplay.textContent = displayNum;
+    
+    numKeyCount = 0;
+    operatorKeyCount += 1;
+    keyDecimal.disabled = false;
+    keyAdd.disabled = true;
+    
+    if (operatorKeyCount === 1) {
+        operator = "add";
+        num1 = parseFloat(displayNum);
+    } else {
+        operateWithOperator();
+        operator = "add";
+    }
+}
+
+function pressSubtract (){
+    
+    numKeyCount = 0;
+    operatorKeyCount += 1;
+    keyDecimal.disabled = false;
+    keySubtract.disabled = true;
+
+    if (operatorKeyCount === 1) {
+        operator = "subtract";
+        num1 = parseFloat(displayNum);
+    } else {
+        operateWithOperator();
+        operator = "subtract";
+    }
+}
+
+function pressMultiply (){
+    numKeyCount = 0;
+    operatorKeyCount += 1;
+    keyDecimal.disabled = false;
+    keyMultiply.disabled = true;
+    
+    if (operatorKeyCount === 1 || equalKeyCount >= 1) {
+        operator = "multiply";
+        num1 = parseFloat(displayNum);
+    } else {
+        operateWithOperator();
+        operator = "multiply";
+    }
+}
+
+function pressDivide (){
+    
+    numKeyCount = 0;
+    operatorKeyCount += 1;
+    keyDecimal.disabled = false;
+    keyDivide.disabled = true;
+    
+    if (operatorKeyCount === 1) {
+        operator = "divide";
+        num1 = parseFloat(displayNum);
+    } else {
+        operateWithOperator();
+        operator = "divide";
+    }
 }
 
 function operate () {
-    num2 = parseInt(displayNum);
-    if (operator === "add") {
-        result = addition(num1, num2);
-    } else if (operator === "subtract") {
-        result = subtraction(a, b);
-    } else if (operator === "multiply") {
-        result = multiplication(a, b);
-    } else if (operator === "division") {
-        result = division(a, b);
-    }
+    equalKeyCount += 1;
+    num2 = parseFloat(displayNum);
+    
+        if (operator === "add") {
+            result = addition(num1, num2);
+            console.log("expression: " + num1 +" + "+ num2 + " = " + result)
+        } else if (operator === "subtract") {
+            result = subtraction(num1, num2);
+            console.log("expression: " + num1 +" - "+ num2 + " = " + result)
+        } else if (operator === "multiply") {
+            result = multiplication(num1, num2);
+            console.log("expression: " + num1 +" x "+ num2 + " = " + result)
+        } else if (operator === "divide") {
+            result = division(num1, num2);
+            console.log("expression: " + num1 +" / "+ num2 + " = " + result)
+        }
+    
     calcDisplay.textContent = result;
-    console.log(result);
+    displayNum = result;
+    num1 = result;
+    operatorKeyCount = 0;
+    numKeyCount = 0;
+    keyEqual.disabled = true;
 }
 
 
+function operateWithOperator () {
+    // if (equalKeyCount === 1) {
+    num2 = parseFloat(displayNum);
+        if (operator === "add") {
+            result = addition(num1, num2);
+            console.log("expression: " + num1 +"+"+ num2 + "=" + result)
+        } else if (operator === "subtract") {
+            result = subtraction(num1, num2);
+            console.log("expression: " + num1 +"-"+ num2 + "=" + result)
+        } else if (operator === "multiply") {
+            result = multiplication(num1, num2);
+            console.log("expression: " + num1 +"x"+ num2 + "=" + result)
+        } else if (operator === "divide") {
+            result = division(num1, num2);
+            console.log("expression: " + num1 +"/"+ num2 + "=" + result)
+        }
+    
+    calcDisplay.textContent = result;
+    displayNum = result;
+    num1 = result;
+    // operatorKeyCount = 0;
+    numKeyCount = 0;
+    keyEqual.disabled = true;
+}
+
+var keyClear = document.querySelector('.key-clear');
 var keyZero = document.querySelector('.key-0');
 var keyOne = document.querySelector('.key-1');
 var keyTwo = document.querySelector('.key-2');
@@ -339,8 +511,12 @@ var keyEight = document.querySelector('.key-8');
 var keyNine = document.querySelector('.key-9');
 var keyDecimal = document.querySelector('.key-decimal');
 var keyAdd = document.querySelector('.key-add');
+var keySubtract = document.querySelector('.key-subtract');
+var keyMultiply = document.querySelector('.key-multiply');
+var keyDivide = document.querySelector('.key-divide');
 var keyEqual = document.querySelector('.key-equal');
 
+keyClear.addEventListener('click', clearDisplay);
 keyZero.addEventListener('click', displayNumber0);
 keyOne.addEventListener('click', displayNumber1);
 keyTwo.addEventListener('click', displayNumber2);
@@ -353,5 +529,7 @@ keyEight.addEventListener('click', displayNumber8);
 keyNine.addEventListener('click', displayNumber9);
 keyDecimal.addEventListener('click', displayDecimal);
 keyAdd.addEventListener('click', pressAdd);
+keySubtract.addEventListener('click', pressSubtract);
+keyMultiply.addEventListener('click', pressMultiply);
+keyDivide.addEventListener('click', pressDivide)
 keyEqual.addEventListener('click', operate);
-
