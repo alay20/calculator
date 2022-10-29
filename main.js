@@ -39,6 +39,11 @@ function clearDisplay () {
     calcDisplay.textContent = "0";
 }
 
+function plusMinus () {
+    displayNum = parseFloat(displayNum) * (-1);
+    calcDisplay.textContent = displayNum;
+}
+
 function displayNumber0() {
     numKeyCount += 1;
     
@@ -388,7 +393,19 @@ function pressAdd (){
     numKeyCount = 0;
     operatorKeyCount += 1;
     keyDecimal.disabled = false;
-    keyAdd.disabled = true;
+    keyAdd.disabled = false;
+    keyZero.disabled = false;
+    keyOne.disabled = false;
+    keyTwo.disabled = false;
+    keyThree.disabled = false;
+    keyFour.disabled = false;
+    keyFive.disabled = false;
+    keySix.disabled = false;
+    keySeven.disabled = false;
+    keyEight.disabled = false;
+    keyNine.disabled = false;
+    keyDecimal.disabled = false;
+
     
     if (operatorKeyCount === 1) {
         operator = "add";
@@ -405,6 +422,17 @@ function pressSubtract (){
     operatorKeyCount += 1;
     keyDecimal.disabled = false;
     keySubtract.disabled = true;
+    keyZero.disabled = false;
+    keyOne.disabled = false;
+    keyTwo.disabled = false;
+    keyThree.disabled = false;
+    keyFour.disabled = false;
+    keyFive.disabled = false;
+    keySix.disabled = false;
+    keySeven.disabled = false;
+    keyEight.disabled = false;
+    keyNine.disabled = false;
+    keyDecimal.disabled = false;
 
     if (operatorKeyCount === 1) {
         operator = "subtract";
@@ -420,6 +448,17 @@ function pressMultiply (){
     operatorKeyCount += 1;
     keyDecimal.disabled = false;
     keyMultiply.disabled = true;
+    keyZero.disabled = false;
+    keyOne.disabled = false;
+    keyTwo.disabled = false;
+    keyThree.disabled = false;
+    keyFour.disabled = false;
+    keyFive.disabled = false;
+    keySix.disabled = false;
+    keySeven.disabled = false;
+    keyEight.disabled = false;
+    keyNine.disabled = false;
+    keyDecimal.disabled = false;
     
     if (operatorKeyCount === 1 || equalKeyCount >= 1) {
         operator = "multiply";
@@ -436,6 +475,17 @@ function pressDivide (){
     operatorKeyCount += 1;
     keyDecimal.disabled = false;
     keyDivide.disabled = true;
+    keyZero.disabled = false;
+    keyOne.disabled = false;
+    keyTwo.disabled = false;
+    keyThree.disabled = false;
+    keyFour.disabled = false;
+    keyFive.disabled = false;
+    keySix.disabled = false;
+    keySeven.disabled = false;
+    keyEight.disabled = false;
+    keyNine.disabled = false;
+    keyDecimal.disabled = false;
     
     if (operatorKeyCount === 1) {
         operator = "divide";
@@ -445,6 +495,8 @@ function pressDivide (){
         operator = "divide";
     }
 }
+
+
 
 function operate () {
     equalKeyCount += 1;
@@ -460,11 +512,24 @@ function operate () {
             result = multiplication(num1, num2);
             console.log("expression: " + num1 +" x "+ num2 + " = " + result)
         } else if (operator === "divide") {
-            result = division(num1, num2);
+            result = division(num1, num2)
             console.log("expression: " + num1 +" / "+ num2 + " = " + result)
         }
     
-    calcDisplay.textContent = result;
+        if (Number.isInteger(result) === false ) {
+            var tempRoundingNum = result.toString();
+            
+            if (tempRoundingNum.length >= 12) {
+                result = parseFloat(tempRoundingNum.substring(0,13));
+                calcDisplay.textContent = result;
+            } else {
+                calcDisplay.textContent = result;
+            }
+
+        } else {
+            calcDisplay.textContent = result;
+        }
+    
     displayNum = result;
     num1 = result;
     operatorKeyCount = 0;
@@ -474,7 +539,6 @@ function operate () {
 
 
 function operateWithOperator () {
-    // if (equalKeyCount === 1) {
     num2 = parseFloat(displayNum);
         if (operator === "add") {
             result = addition(num1, num2);
@@ -486,11 +550,24 @@ function operateWithOperator () {
             result = multiplication(num1, num2);
             console.log("expression: " + num1 +"x"+ num2 + "=" + result)
         } else if (operator === "divide") {
-            result = division(num1, num2);
+            result = division(num1, num2)
             console.log("expression: " + num1 +"/"+ num2 + "=" + result)
         }
     
-    calcDisplay.textContent = result;
+        if (Number.isInteger(result) === false ) {
+            var tempRoundingNum = result.toString();
+            
+            if (tempRoundingNum.length >= 12) {
+                result = parseFloat(tempRoundingNum.substring(0,13));
+                calcDisplay.textContent = result;
+            }else {
+                calcDisplay.textContent = result;
+            }
+            
+        } else {
+            calcDisplay.textContent = result;
+        }
+
     displayNum = result;
     num1 = result;
     // operatorKeyCount = 0;
@@ -499,6 +576,7 @@ function operateWithOperator () {
 }
 
 var keyClear = document.querySelector('.key-clear');
+var keyPlusMinus = document.querySelector('.key-plus-minus');
 var keyZero = document.querySelector('.key-0');
 var keyOne = document.querySelector('.key-1');
 var keyTwo = document.querySelector('.key-2');
@@ -517,6 +595,7 @@ var keyDivide = document.querySelector('.key-divide');
 var keyEqual = document.querySelector('.key-equal');
 
 keyClear.addEventListener('click', clearDisplay);
+keyPlusMinus.addEventListener('click', plusMinus);
 keyZero.addEventListener('click', displayNumber0);
 keyOne.addEventListener('click', displayNumber1);
 keyTwo.addEventListener('click', displayNumber2);
