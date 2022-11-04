@@ -50,8 +50,15 @@ body {
     background-color: rgb(45, 101, 255);
 }
 
+.key-backspace {
+    background-color:rgb(255, 0, 0)
+}
+
 .key-clear,
+.key-backspace,
 .key-plus-minus {
+    width: 53px;
+    height: 36px;
     margin-top: 15px;
     margin-left: 20px;
     align-self: flex-start;

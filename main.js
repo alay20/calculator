@@ -19,6 +19,50 @@ function division (a,b){
     return a/b;
 }
 
+var keyClear = document.querySelector('.key-clear');
+var keyBackspace = document.querySelector('.key-backspace');
+var keyPlusMinus = document.querySelector('.key-plus-minus');
+
+var keyZero = document.querySelector('.key-0');
+var keyOne = document.querySelector('.key-1');
+var keyTwo = document.querySelector('.key-2');
+var keyThree = document.querySelector('.key-3');
+var keyFour = document.querySelector('.key-4');
+var keyFive = document.querySelector('.key-5');
+var keySix = document.querySelector('.key-6');
+var keySeven = document.querySelector('.key-7');
+var keyEight = document.querySelector('.key-8');
+var keyNine = document.querySelector('.key-9');
+var keyDecimal = document.querySelector('.key-decimal');
+var keyAdd = document.querySelector('.key-add');
+var keySubtract = document.querySelector('.key-subtract');
+var keyMultiply = document.querySelector('.key-multiply');
+var keyDivide = document.querySelector('.key-divide');
+var keyEqual = document.querySelector('.key-equal');
+
+keyClear.addEventListener('click', clearDisplay);
+keyBackspace.addEventListener('click', backSpace);
+keyPlusMinus.addEventListener('click', plusMinus);
+
+keyZero.addEventListener('click', displayNumber0);
+keyOne.addEventListener('click', displayNumber1);
+keyTwo.addEventListener('click', displayNumber2);
+keyThree.addEventListener('click', displayNumber3);
+keyFour.addEventListener('click', displayNumber4);
+keyFive.addEventListener('click', displayNumber5);
+keySix.addEventListener('click', displayNumber6);
+keySeven.addEventListener('click', displayNumber7);
+keyEight.addEventListener('click', displayNumber8);
+keyNine.addEventListener('click', displayNumber9);
+keyDecimal.addEventListener('click', displayDecimal);
+keyAdd.addEventListener('click', pressAdd);
+keySubtract.addEventListener('click', pressSubtract);
+keyMultiply.addEventListener('click', pressMultiply);
+keyDivide.addEventListener('click', pressDivide)
+keyEqual.addEventListener('click', operate);
+
+
+
 // Calculator Display
 var numKeyCount = 0;
 var operatorKeyCount = 0;
@@ -37,6 +81,20 @@ function clearDisplay () {
     num2 = 0;
     result = 0;
     calcDisplay.textContent = "0";
+}
+
+function backSpace () {
+    var displayNumBS = displayNum.length - 1;
+    
+
+    if (displayNum.length === 1) {
+        numKeyCount = 0;
+        displayNum = "0";
+        calcDisplay.textContent = displayNum;
+    } else {
+        displayNum = displayNum.substring(0, displayNumBS);
+        calcDisplay.textContent = displayNum;
+    }
 }
 
 function plusMinus () {
@@ -62,17 +120,7 @@ function displayNumber0() {
         calcDisplay.textContent = displayNum;    
         keyDecimal.disabled = true;
     } else if (numKeyCount > 11) {
-        keyZero.disabled = true;
-        keyOne.disabled = true;
-        keyTwo.disabled = true;
-        keyThree.disabled = true;
-        keyFour.disabled = true;
-        keyFive.disabled = true;
-        keySix.disabled = true;
-        keySeven.disabled = true;
-        keyEight.disabled = true;
-        keyNine.disabled = true;
-        keyDecimal.disabled = true;
+        return
     }
 }
 
@@ -89,24 +137,14 @@ function displayNumber1() {
         displayNum = "";
         displayNum += "1";
         calcDisplay.textContent = displayNum;  
+    } else if (numKeyCount > 11) {
+        return 
     } else {
         displayNum += "1";
         calcDisplay.textContent = displayNum;        
     }
     
-    if (numKeyCount > 11) {
-        keyZero.disabled = true;
-        keyOne.disabled = true;
-        keyTwo.disabled = true;
-        keyThree.disabled = true;
-        keyFour.disabled = true;
-        keyFive.disabled = true;
-        keySix.disabled = true;
-        keySeven.disabled = true;
-        keyEight.disabled = true;
-        keyNine.disabled = true;
-        keyDecimal.disabled = true;
-    }
+  
 }
 
 function displayNumber2() {
@@ -122,23 +160,11 @@ function displayNumber2() {
         displayNum = "";
         displayNum += "2";
         calcDisplay.textContent = displayNum;  
+    } else if (numKeyCount > 11) {
+        return
     } else {
         displayNum += "2";
         calcDisplay.textContent = displayNum;        
-    }
-    
-    if (numKeyCount > 11) {
-        keyZero.disabled = true;
-        keyOne.disabled = true;
-        keyTwo.disabled = true;
-        keyThree.disabled = true;
-        keyFour.disabled = true;
-        keyFive.disabled = true;
-        keySix.disabled = true;
-        keySeven.disabled = true;
-        keyEight.disabled = true;
-        keyNine.disabled = true;
-        keyDecimal.disabled = true;
     }
 }
 
@@ -155,23 +181,11 @@ function displayNumber3() {
         displayNum = "";
         displayNum += "3";
         calcDisplay.textContent = displayNum;  
+    } else if (numKeyCount > 11) {
+        return
     } else {
         displayNum += "3";
         calcDisplay.textContent = displayNum;        
-    }
-    
-    if (numKeyCount > 11) {
-        keyZero.disabled = true;
-        keyOne.disabled = true;
-        keyTwo.disabled = true;
-        keyThree.disabled = true;
-        keyFour.disabled = true;
-        keyFive.disabled = true;
-        keySix.disabled = true;
-        keySeven.disabled = true;
-        keyEight.disabled = true;
-        keyNine.disabled = true;
-        keyDecimal.disabled = true;
     }
 }
 
@@ -188,23 +202,11 @@ function displayNumber4() {
         displayNum = "";
         displayNum += "4";
         calcDisplay.textContent = displayNum;  
+    } else if (numKeyCount > 11) {
+        return
     } else {
         displayNum += "4";
         calcDisplay.textContent = displayNum;        
-    }
-    
-    if (numKeyCount > 11) {
-        keyZero.disabled = true;
-        keyOne.disabled = true;
-        keyTwo.disabled = true;
-        keyThree.disabled = true;
-        keyFour.disabled = true;
-        keyFive.disabled = true;
-        keySix.disabled = true;
-        keySeven.disabled = true;
-        keyEight.disabled = true;
-        keyNine.disabled = true;
-        keyDecimal.disabled = true;
     }
 }
 
@@ -221,23 +223,11 @@ function displayNumber5() {
         displayNum = "";
         displayNum += "5";
         calcDisplay.textContent = displayNum;  
+    } else if (numKeyCount > 11) {
+        return
     } else {
         displayNum += "5";
         calcDisplay.textContent = displayNum;        
-    }
-    
-    if (numKeyCount > 11) {
-        keyZero.disabled = true;
-        keyOne.disabled = true;
-        keyTwo.disabled = true;
-        keyThree.disabled = true;
-        keyFour.disabled = true;
-        keyFive.disabled = true;
-        keySix.disabled = true;
-        keySeven.disabled = true;
-        keyEight.disabled = true;
-        keyNine.disabled = true;
-        keyDecimal.disabled = true;
     }
 }
 
@@ -254,23 +244,11 @@ function displayNumber6() {
         displayNum = "";
         displayNum += "6";
         calcDisplay.textContent = displayNum;  
+    } else if (numKeyCount > 11) {
+        return
     } else {
         displayNum += "6";
         calcDisplay.textContent = displayNum;        
-    }
-    
-    if (numKeyCount > 11) {
-        keyZero.disabled = true;
-        keyOne.disabled = true;
-        keyTwo.disabled = true;
-        keyThree.disabled = true;
-        keyFour.disabled = true;
-        keyFive.disabled = true;
-        keySix.disabled = true;
-        keySeven.disabled = true;
-        keyEight.disabled = true;
-        keyNine.disabled = true;
-        keyDecimal.disabled = true;
     }
 }
 
@@ -287,23 +265,11 @@ function displayNumber7() {
         displayNum = "";
         displayNum += "7";
         calcDisplay.textContent = displayNum;  
+    } else if (numKeyCount > 11) {
+        return
     } else {
         displayNum += "7";
         calcDisplay.textContent = displayNum;        
-    }
-    
-    if (numKeyCount > 11) {
-        keyZero.disabled = true;
-        keyOne.disabled = true;
-        keyTwo.disabled = true;
-        keyThree.disabled = true;
-        keyFour.disabled = true;
-        keyFive.disabled = true;
-        keySix.disabled = true;
-        keySeven.disabled = true;
-        keyEight.disabled = true;
-        keyNine.disabled = true;
-        keyDecimal.disabled = true;
     }
 }
 
@@ -320,23 +286,11 @@ function displayNumber8() {
         displayNum = "";
         displayNum += "8";
         calcDisplay.textContent = displayNum;  
+    } else if (numKeyCount > 11) {
+        return
     } else {
         displayNum += "8";
         calcDisplay.textContent = displayNum;        
-    }
-    
-    if (numKeyCount > 11) {
-        keyZero.disabled = true;
-        keyOne.disabled = true;
-        keyTwo.disabled = true;
-        keyThree.disabled = true;
-        keyFour.disabled = true;
-        keyFive.disabled = true;
-        keySix.disabled = true;
-        keySeven.disabled = true;
-        keyEight.disabled = true;
-        keyNine.disabled = true;
-        keyDecimal.disabled = true;
     }
 }
 
@@ -353,23 +307,11 @@ function displayNumber9() {
         displayNum = "";
         displayNum += "9";
         calcDisplay.textContent = displayNum;  
+    } else if (numKeyCount > 11) {
+        return
     } else {
         displayNum += "9";
         calcDisplay.textContent = displayNum;        
-    }
-    
-    if (numKeyCount > 11) {
-        keyZero.disabled = true;
-        keyOne.disabled = true;
-        keyTwo.disabled = true;
-        keyThree.disabled = true;
-        keyFour.disabled = true;
-        keyFive.disabled = true;
-        keySix.disabled = true;
-        keySeven.disabled = true;
-        keyEight.disabled = true;
-        keyNine.disabled = true;
-        keyDecimal.disabled = true;
     }
 }
 
@@ -575,40 +517,62 @@ function operateWithOperator () {
     keyEqual.disabled = true;
 }
 
-var keyClear = document.querySelector('.key-clear');
-var keyPlusMinus = document.querySelector('.key-plus-minus');
-var keyZero = document.querySelector('.key-0');
-var keyOne = document.querySelector('.key-1');
-var keyTwo = document.querySelector('.key-2');
-var keyThree = document.querySelector('.key-3');
-var keyFour = document.querySelector('.key-4');
-var keyFive = document.querySelector('.key-5');
-var keySix = document.querySelector('.key-6');
-var keySeven = document.querySelector('.key-7');
-var keyEight = document.querySelector('.key-8');
-var keyNine = document.querySelector('.key-9');
-var keyDecimal = document.querySelector('.key-decimal');
-var keyAdd = document.querySelector('.key-add');
-var keySubtract = document.querySelector('.key-subtract');
-var keyMultiply = document.querySelector('.key-multiply');
-var keyDivide = document.querySelector('.key-divide');
-var keyEqual = document.querySelector('.key-equal');
+//Keyboard function
+window.addEventListener('keydown', function(e) {
+    // const keyBoardPress = document.querySelector(`button[data-key="${e.code}"]`);
+    if (e.key === "0") {
+        displayNumber0();
+    } else if (e.key === "1") {
+        displayNumber1();
+    } else if (e.key === "2") {
+        displayNumber2();
+    } else if (e.key === "3") {
+        displayNumber3();
+    } else if (e.key === "4") {
+        displayNumber4();
+    } else if (e.key === "5") {
+        displayNumber5();
+    } else if (e.key === "6") {
+        displayNumber6();
+    } else if (e.key === "7") {
+        displayNumber7();
+    } else if (e.key === "8") {
+        displayNumber8();
+    } else if (e.key === "9") {
+        displayNumber9();
+    } else if (e.key === ".") {
+        displayDecimal();
+    } else if (e.key === "Backspace") {
+        backSpace();
+    } else if (e.key === "Escape") {
+        clearDisplay();
+    } else if (e.key === "=" || e.key === "Enter") {
+        operate();
+    } else if (e.key === "/") {
+        pressDivide();
+    } else if (e.key === "+") {
+        pressAdd();
+    } else if (e.key === "-") {
+        pressSubtract();
+    } else if (e.key === "*") {
+        pressMultiply();
+    }
+    
+    // console.log(e.key); 
 
-keyClear.addEventListener('click', clearDisplay);
-keyPlusMinus.addEventListener('click', plusMinus);
-keyZero.addEventListener('click', displayNumber0);
-keyOne.addEventListener('click', displayNumber1);
-keyTwo.addEventListener('click', displayNumber2);
-keyThree.addEventListener('click', displayNumber3);
-keyFour.addEventListener('click', displayNumber4);
-keyFive.addEventListener('click', displayNumber5);
-keySix.addEventListener('click', displayNumber6);
-keySeven.addEventListener('click', displayNumber7);
-keyEight.addEventListener('click', displayNumber8);
-keyNine.addEventListener('click', displayNumber9);
-keyDecimal.addEventListener('click', displayDecimal);
-keyAdd.addEventListener('click', pressAdd);
-keySubtract.addEventListener('click', pressSubtract);
-keyMultiply.addEventListener('click', pressMultiply);
-keyDivide.addEventListener('click', pressDivide)
-keyEqual.addEventListener('click', operate);
+});
+
+
+  // if (numKeyCount > 11) {
+    //     keyZero.disabled = true;
+    //     keyOne.disabled = true;
+    //     keyTwo.disabled = true;
+    //     keyThree.disabled = true;
+    //     keyFour.disabled = true;
+    //     keyFive.disabled = true;
+    //     keySix.disabled = true;
+    //     keySeven.disabled = true;
+    //     keyEight.disabled = true;
+    //     keyNine.disabled = true;
+    //     keyDecimal.disabled = true;
+    // }
