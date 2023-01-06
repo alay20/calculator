@@ -3,6 +3,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    background-color: rgb(23, 62, 105);
 }
 
 .calc-main-container {
@@ -15,6 +16,8 @@ body {
     width: 500px;
     height: 600px;
     padding-bottom: 20px;
+    background-color: rgb(67, 161, 213);
+    border-radius: 8px;
 }
 
 .calc-display {
@@ -27,6 +30,8 @@ body {
     margin-top: 25px;
     text-align: right;
     font-size: 70px;
+    background-color: rgb(213, 176, 72);
+    border-radius: 8px;
 }
 
 .extra-key-cont {
@@ -63,6 +68,7 @@ body {
     margin-left: 20px;
     align-self: flex-start;
     font-size: 25px;
+    border-radius: 8px;
 }
 
 .key-0,
@@ -83,6 +89,10 @@ body {
 .key-add {
     font-size: 70px;
     text-align: center;
+    width: 56px;
+    border-radius: 8px;
+    background-color: whitesmoke;
+    background-color: #ffffff;
 }
 
 .key-0:disabled,
@@ -109,4 +119,6 @@ body {
   color: black;
   font-size: 70px;
   text-decoration: none;
+  width: 56px;
+  background-color: #ffffff;
 }

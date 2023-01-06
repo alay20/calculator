@@ -61,6 +61,12 @@ keyMultiply.addEventListener('click', pressMultiply);
 keyDivide.addEventListener('click', pressDivide)
 keyEqual.addEventListener('click', operate);
 
+keyAdd.disabled = true;
+keySubtract.disabled = true;
+keyMultiply.disabled = true;
+keyDivide.disabled = true;
+keyEqual.disabled = true;
+
 
 
 // Calculator Display
@@ -110,6 +116,9 @@ function displayNumber0() {
     keyDivide.disabled = false;
     keyMultiply.disabled = false;
     keyEqual.disabled = false;
+    removeEventListener('keydown', keyBoardDecimal);
+    window.addEventListener('keydown', keyBoardOperator);
+
     
     if (numKeyCount === 1) {
         displayNum = "0."
@@ -132,6 +141,7 @@ function displayNumber1() {
     keyDivide.disabled = false;
     keyMultiply.disabled = false;
     keyEqual.disabled = false;
+    window.addEventListener('keydown', keyBoardOperator);
     
     if (numKeyCount === 1) {
         displayNum = "";
@@ -155,6 +165,7 @@ function displayNumber2() {
     keyDivide.disabled = false;
     keyMultiply.disabled = false;
     keyEqual.disabled = false;
+    window.addEventListener('keydown', keyBoardOperator);
     
     if (numKeyCount === 1) {
         displayNum = "";
@@ -176,6 +187,7 @@ function displayNumber3() {
     keyDivide.disabled = false;
     keyMultiply.disabled = false;
     keyEqual.disabled = false;
+    window.addEventListener('keydown', keyBoardOperator);
     
     if (numKeyCount === 1) {
         displayNum = "";
@@ -197,6 +209,7 @@ function displayNumber4() {
     keyDivide.disabled = false;
     keyMultiply.disabled = false;
     keyEqual.disabled = false;
+    window.addEventListener('keydown', keyBoardOperator);
 
     if (numKeyCount === 1) {
         displayNum = "";
@@ -218,6 +231,7 @@ function displayNumber5() {
     keyDivide.disabled = false;
     keyMultiply.disabled = false;
     keyEqual.disabled = false;
+    window.addEventListener('keydown', keyBoardOperator);
 
     if (numKeyCount === 1) {
         displayNum = "";
@@ -239,6 +253,7 @@ function displayNumber6() {
     keyDivide.disabled = false;
     keyMultiply.disabled = false;
     keyEqual.disabled = false;
+    window.addEventListener('keydown', keyBoardOperator);
 
     if (numKeyCount === 1) {
         displayNum = "";
@@ -260,6 +275,7 @@ function displayNumber7() {
     keyDivide.disabled = false;
     keyMultiply.disabled = false;
     keyEqual.disabled = false;
+    window.addEventListener('keydown', keyBoardOperator);
 
     if (numKeyCount === 1) {
         displayNum = "";
@@ -281,6 +297,7 @@ function displayNumber8() {
     keyDivide.disabled = false;
     keyMultiply.disabled = false;
     keyEqual.disabled = false;
+    window.addEventListener('keydown', keyBoardOperator);
 
     if (numKeyCount === 1) {
         displayNum = "";
@@ -302,6 +319,7 @@ function displayNumber9() {
     keyDivide.disabled = false;
     keyMultiply.disabled = false;
     keyEqual.disabled = false;
+    window.addEventListener('keydown', keyBoardOperator);
 
     if (numKeyCount === 1) {
         displayNum = "";
@@ -320,6 +338,7 @@ function displayDecimal() {
     
     keyDecimal.disabled = true;
     keyEqual.disabled = false;
+    window.removeEventListener('keydown', keyBoardDecimal);
     
     if (numKeyCount <= 1) {
         displayNum = "0."
@@ -333,9 +352,13 @@ function displayDecimal() {
 function pressAdd (){
     
     numKeyCount = 0;
+    equalKeyCount = 0;
     operatorKeyCount += 1;
     keyDecimal.disabled = false;
-    keyAdd.disabled = false;
+    keyAdd.disabled = true;
+    keySubtract.disabled = true;
+    keyMultiply.disabled = true;
+    keyDivide.disabled = true;
     keyZero.disabled = false;
     keyOne.disabled = false;
     keyTwo.disabled = false;
@@ -347,6 +370,8 @@ function pressAdd (){
     keyEight.disabled = false;
     keyNine.disabled = false;
     keyDecimal.disabled = false;
+    window.addEventListener('keydown', keyBoardDecimal);
+    window.removeEventListener('keydown', keyBoardOperator);
 
     
     if (operatorKeyCount === 1) {
@@ -361,9 +386,13 @@ function pressAdd (){
 function pressSubtract (){
     
     numKeyCount = 0;
+    equalKeyCount = 0;
     operatorKeyCount += 1;
     keyDecimal.disabled = false;
+    keyAdd.disabled = true;
     keySubtract.disabled = true;
+    keyMultiply.disabled = true;
+    keyDivide.disabled = true;
     keyZero.disabled = false;
     keyOne.disabled = false;
     keyTwo.disabled = false;
@@ -375,6 +404,8 @@ function pressSubtract (){
     keyEight.disabled = false;
     keyNine.disabled = false;
     keyDecimal.disabled = false;
+    window.addEventListener('keydown', keyBoardDecimal);
+    window.removeEventListener('keydown', keyBoardOperator);
 
     if (operatorKeyCount === 1) {
         operator = "subtract";
@@ -387,9 +418,13 @@ function pressSubtract (){
 
 function pressMultiply (){
     numKeyCount = 0;
+    equalKeyCount = 0;
     operatorKeyCount += 1;
     keyDecimal.disabled = false;
+    keyAdd.disabled = true;
+    keySubtract.disabled = true;
     keyMultiply.disabled = true;
+    keyDivide.disabled = true;
     keyZero.disabled = false;
     keyOne.disabled = false;
     keyTwo.disabled = false;
@@ -401,6 +436,8 @@ function pressMultiply (){
     keyEight.disabled = false;
     keyNine.disabled = false;
     keyDecimal.disabled = false;
+    window.addEventListener('keydown', keyBoardDecimal);
+    window.removeEventListener('keydown', keyBoardOperator);
     
     if (operatorKeyCount === 1 || equalKeyCount >= 1) {
         operator = "multiply";
@@ -414,8 +451,12 @@ function pressMultiply (){
 function pressDivide (){
     
     numKeyCount = 0;
+    equalKeyCount = 0;
     operatorKeyCount += 1;
     keyDecimal.disabled = false;
+    keyAdd.disabled = true;
+    keySubtract.disabled = true;
+    keyMultiply.disabled = true;
     keyDivide.disabled = true;
     keyZero.disabled = false;
     keyOne.disabled = false;
@@ -428,6 +469,8 @@ function pressDivide (){
     keyEight.disabled = false;
     keyNine.disabled = false;
     keyDecimal.disabled = false;
+    window.addEventListener('keydown', keyBoardDecimal);
+    window.removeEventListener('keydown', keyBoardOperator);
     
     if (operatorKeyCount === 1) {
         operator = "divide";
@@ -442,32 +485,56 @@ function pressDivide (){
 
 function operate () {
     equalKeyCount += 1;
-    num2 = parseFloat(displayNum);
     
-        if (operator === "add") {
-            result = addition(num1, num2);
-            console.log("expression: " + num1 +" + "+ num2 + " = " + result)
-        } else if (operator === "subtract") {
-            result = subtraction(num1, num2);
-            console.log("expression: " + num1 +" - "+ num2 + " = " + result)
-        } else if (operator === "multiply") {
-            result = multiplication(num1, num2);
-            console.log("expression: " + num1 +" x "+ num2 + " = " + result)
-        } else if (operator === "divide") {
-            result = division(num1, num2)
-            console.log("expression: " + num1 +" / "+ num2 + " = " + result)
-        }
+    if (equalKeyCount === 1) {
+        num2 = parseFloat(displayNum);
+    } else {
+        num2 = num2;
+    }
     
-        if (Number.isInteger(result) === false ) {
-            var tempRoundingNum = result.toString();
-            
-            if (tempRoundingNum.length >= 12) {
-                result = parseFloat(tempRoundingNum.substring(0,13));
-                calcDisplay.textContent = result;
-            } else {
-                calcDisplay.textContent = result;
-            }
+    if (operator === "add") {
+        result = addition(num1, num2);
+        console.log("expression: " + num1 +" + "+ num2 + " = " + result)
+    } else if (operator === "subtract") {
+        result = subtraction(num1, num2);
+        console.log("expression: " + num1 +" - "+ num2 + " = " + result)
+    } else if (operator === "multiply") {
+        result = multiplication(num1, num2);
+        console.log("expression: " + num1 +" x "+ num2 + " = " + result)
+    } else if (operator === "divide") {
+        result = division(num1, num2)
+        console.log("expression: " + num1 +" / "+ num2 + " = " + result)
+    }
 
+    //Rounding
+    var tempRoundingNum = result.toString();
+    var factorOfTen;
+        if (tempRoundingNum.length >= 12 && Number.isInteger(result) === false ) {
+            if (result < 10) {
+                factorOfTen = Math.pow(10, 11);
+            } else if (result >= 10 && result < 100) {
+                factorOfTen = Math.pow(10, 10);
+            } else if (result >= 10 && result < 1000) {
+                factorOfTen = Math.pow(10, 9);
+            } else if (result >= 10 && result < 10000) {
+                factorOfTen = Math.pow(10, 8);
+            } else if (result >= 10 && result < 100000) {
+                factorOfTen = Math.pow(10, 7);
+            } else if (result >= 10 && result < 1000000) {
+                factorOfTen = Math.pow(10, 6);
+            } else if (result >= 10 && result < 10000000) {
+                factorOfTen = Math.pow(10, 5);
+            } else if (result >= 10 && result < 100000000) {
+                factorOfTen = Math.pow(10, 4);
+            } else if (result >= 10 && result < 1000000000) {
+                factorOfTen = Math.pow(10, 3);
+            } else if (result >= 10 && result < 10000000000) {
+                factorOfTen = Math.pow(10, 2);
+            } else if (result >= 10 && result < 100000000000) {
+                factorOfTen = Math.pow(10, 1);
+            }
+        result = Math.round(result * factorOfTen) / factorOfTen;
+        calcDisplay.textContent = result;
         } else {
             calcDisplay.textContent = result;
         }
@@ -476,12 +543,13 @@ function operate () {
     num1 = result;
     operatorKeyCount = 0;
     numKeyCount = 0;
-    keyEqual.disabled = true;
 }
 
 
 function operateWithOperator () {
     num2 = parseFloat(displayNum);
+
+        
         if (operator === "add") {
             result = addition(num1, num2);
             console.log("expression: " + num1 +"+"+ num2 + "=" + result)
@@ -495,20 +563,42 @@ function operateWithOperator () {
             result = division(num1, num2)
             console.log("expression: " + num1 +"/"+ num2 + "=" + result)
         }
-    
-        if (Number.isInteger(result) === false ) {
-            var tempRoundingNum = result.toString();
-            
-            if (tempRoundingNum.length >= 12) {
-                result = parseFloat(tempRoundingNum.substring(0,13));
-                calcDisplay.textContent = result;
-            }else {
-                calcDisplay.textContent = result;
+
+
+    //Rounding
+    var tempRoundingNum = result.toString();
+    var factorOfTen;
+        if (tempRoundingNum.length >= 12 && Number.isInteger(result) === false ) {
+            if (result < 10) {
+                factorOfTen = Math.pow(10, 11);
+            } else if (result >= 10 && result < 100) {
+                factorOfTen = Math.pow(10, 10);
+            } else if (result >= 10 && result < 1000) {
+                factorOfTen = Math.pow(10, 9);
+            } else if (result >= 10 && result < 10000) {
+                factorOfTen = Math.pow(10, 8);
+            } else if (result >= 10 && result < 100000) {
+                factorOfTen = Math.pow(10, 7);
+            } else if (result >= 10 && result < 1000000) {
+                factorOfTen = Math.pow(10, 6);
+            } else if (result >= 10 && result < 10000000) {
+                factorOfTen = Math.pow(10, 5);
+            } else if (result >= 10 && result < 100000000) {
+                factorOfTen = Math.pow(10, 4);
+            } else if (result >= 10 && result < 1000000000) {
+                factorOfTen = Math.pow(10, 3);
+            } else if (result >= 10 && result < 10000000000) {
+                factorOfTen = Math.pow(10, 2);
+            } else if (result >= 10 && result < 100000000000) {
+                factorOfTen = Math.pow(10, 1);
             }
-            
+        result = Math.round(result * factorOfTen) / factorOfTen;
+        calcDisplay.textContent = result;
         } else {
             calcDisplay.textContent = result;
         }
+    
+    
 
     displayNum = result;
     num1 = result;
@@ -518,8 +608,11 @@ function operateWithOperator () {
 }
 
 //Keyboard function
-window.addEventListener('keydown', function(e) {
-    // const keyBoardPress = document.querySelector(`button[data-key="${e.code}"]`);
+window.addEventListener('keydown', keyBoardNumber);
+window.addEventListener('keydown', keyBoardDecimal);
+window.addEventListener('keydown', keyBoardOperator);
+
+function keyBoardNumber (e) {
     if (e.key === "0") {
         displayNumber0();
     } else if (e.key === "1") {
@@ -540,15 +633,24 @@ window.addEventListener('keydown', function(e) {
         displayNumber8();
     } else if (e.key === "9") {
         displayNumber9();
-    } else if (e.key === ".") {
-        displayDecimal();
     } else if (e.key === "Backspace") {
         backSpace();
     } else if (e.key === "Escape") {
         clearDisplay();
     } else if (e.key === "=" || e.key === "Enter") {
-        operate();
-    } else if (e.key === "/") {
+        operate();    
+    }
+    };
+
+
+function keyBoardDecimal (e) {
+    if (e.key === ".") {
+        displayDecimal();
+    }
+    };
+
+function keyBoardOperator (e) {
+    if (e.key === "/") {
         pressDivide();
     } else if (e.key === "+") {
         pressAdd();
@@ -557,10 +659,14 @@ window.addEventListener('keydown', function(e) {
     } else if (e.key === "*") {
         pressMultiply();
     }
-    
-    // console.log(e.key); 
+    };
 
-});
+
+
+
+//*****************************************
+//how to disable equal keyboard event after it has been pressed once?
+//round integers properly instead of just cutting numbers to fit calc screen
 
 
   // if (numKeyCount > 11) {
@@ -575,4 +681,19 @@ window.addEventListener('keydown', function(e) {
     //     keyEight.disabled = true;
     //     keyNine.disabled = true;
     //     keyDecimal.disabled = true;
+    // }
+
+     
+    // if (Number.isInteger(result) === false ) {
+    //     var tempRoundingNum = result.toString();
+        
+    //     if (tempRoundingNum.length >= 12) {
+    //         result = parseFloat(tempRoundingNum.substring(0,13));
+    //         calcDisplay.textContent = result;
+    //     } else {
+    //         calcDisplay.textContent = result;
+    //     }
+
+    // } else {
+    //     calcDisplay.textContent = result;
     // }
